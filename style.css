@@ -1,0 +1,129 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+}
+
+nav {
+    display: flex;
+    background-color: green;
+    justify-content: space-around;
+    height: 50px;
+    width: 100%;
+    color: #eaeaea;
+    align-items: center;
+    box-shadow: 0 -1px 3px 5px rgba(0,0,0,40%);
+}
+
+nav .logo {
+    font-family: 'Pacifico', cursive;
+    letter-spacing: 2px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    width: 40%;
+    justify-content: space-between;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: inherit;
+    font-size: 0.8em;
+}
+
+nav ul li a:hover {
+    color: rgb(212, 212, 212);
+    font-weight: bold;
+}
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 20px;
+    position: relative;
+}
+
+.menu-toggle input {
+    opacity: 0;
+    position: absolute;
+    width: 32px;
+    height: 27px;
+    top: -3px;
+    left: -2px;
+    right: -2px;
+    bottom: 1px;
+    z-index: 9999;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 28px;
+    height: 3px;
+    background-color: #eaeaea;
+    border-radius: 3px;
+    transition: all 0.5s;
+}
+
+.menu-toggle input:checked ~ span:nth-child(2) {
+    background-color: white;
+    transform-origin: 0 0;
+    transform: rotate(45deg) translate(3px, -4px);
+}
+
+.menu-toggle input:checked ~ span:nth-child(4) {
+    background-color: white;
+    transform-origin: 0 100%;
+    transform: rotate(-45deg) translate(3px, 4px);
+}
+
+.menu-toggle input:checked ~ span:nth-child(3) {
+    transform: scale(0);
+    opacity: 0;
+}
+
+
+/* Responsive */
+/* Tablet */
+@media screen and (max-width: 768px) {
+    nav ul {
+        width: 50%;
+    }
+}
+
+/* Mobile */
+@media screen and (max-width: 576px) {
+    nav ul {
+        position: absolute;
+        top: 0;
+        right: 0;
+        align-items: center;
+        justify-content: space-evenly;
+        color: rgb(8, 54, 182);
+        font-size: 18px;
+        font-weight: bold;
+        width: 70%;
+        height: 100vh;
+        flex-direction: column;
+        background-color: rgb(117, 207, 42);
+        transform: translateX(100%);
+        z-index: -1;
+        transition: all 1s;
+        opacity: 0;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    nav ul.slide {
+        transform: translateX(0);
+        opacity: 1;
+    } 
+}
